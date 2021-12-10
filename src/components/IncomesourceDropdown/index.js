@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { Inline } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Dropdown, Field, Menu, Item, Hint, Select, Label, Message } from '@zendeskgarden/react-dropdowns';
 import { fetchIncomeSources } from '../../utils/apis/income'
@@ -8,15 +10,18 @@ const SpacedRow = styled(Row)`
   margin: 50px 0px;
 `
 
-const IncomesourceDropdown = ({ userId, onChange, errors }) => {
+const IncomesourceDropdown = ({ userId, setLoading, onChange, errors }) => {
   const [incomeSources, setIncomeSources] = useState(null)
   const [selectedSource, setSelectedSource] = useState(null);
 
   useEffect(() => {
+    setLoading(true)
     setSelectedSource(null)
+    setIncomeSources(null)
     onChange(null)
     fetchIncomeSources(userId).then(incomeSources =>{
       setIncomeSources(incomeSources)
+      setLoading(false)
     })
   }, [ userId ])
 
@@ -28,8 +33,7 @@ const IncomesourceDropdown = ({ userId, onChange, errors }) => {
   return(
     <SpacedRow justifyContent="start">
       <Col sm={5}>
-        { incomeSources
-          ?
+        { incomeSources &&
           <>
            <Dropdown
               selectedItem={selectedSource}
@@ -53,9 +57,8 @@ const IncomesourceDropdown = ({ userId, onChange, errors }) => {
                  </Menu>
            </Dropdown>
           </>
-          :
-          <div> loading </div>
         }
+        { !incomeSources && <Inline size={32} color={PALETTE.blue[600]} />}
       </Col>
     </SpacedRow>
   )

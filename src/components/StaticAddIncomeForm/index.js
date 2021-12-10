@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Field, Label, Hint, Input, Message } from '@zendeskgarden/react-forms';
 import { useForm, Controller  } from "react-hook-form";
 import { Button } from '@zendeskgarden/react-buttons';
@@ -11,13 +11,13 @@ const SpacedRow = styled(Row)`
   margin: 50px 0px;
 `
 
-const IncomesourceInput = ({control, errors, userId} ) => (
+const IncomesourceInput = ({control, errors, userId, setLoading} ) => (
   < Controller
     control = {control}
     rules={{ required: true }}
     name= "incomesource"
     render={({ field: { onChange } }) =>(
-    <IncomesourceDropdown onChange={onChange} userId={userId} errors={errors} />
+    <IncomesourceDropdown onChange={onChange} userId={userId} errors={errors} setLoading={setLoading}/>
     )}
   />
 )
@@ -55,6 +55,7 @@ const SubmitButton = () => (
 
 const StaticAddIncomeForm = ({ userId='MAL0001' }) => {
   const { control, register, handleSubmit, formState: { errors } } = useForm();
+  const [ isLoading, setLoading ] = useState(true)
   const onSubmit = data => {
     console.log(data)
   }
@@ -62,10 +63,14 @@ const StaticAddIncomeForm = ({ userId='MAL0001' }) => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <IncomesourceInput errors={errors} userId={userId} control={control} />
-        <DateInput errors={errors} control={control} />
-        <AmountInput errors={errors} register={register} />
-        <SubmitButton/>
+        <IncomesourceInput errors={errors} userId={userId} control={control} setLoading={setLoading}/>
+        { !isLoading &&
+          <>
+            <DateInput errors={errors} control={control} />
+            <AmountInput errors={errors} register={register} />
+            <SubmitButton/>
+          </>
+        }
       </form>
     </div>
   );

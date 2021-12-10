@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://127.0.0.1:8000/api/'
+export const BASE_URL = 'https://contribute-together-server.herokuapp.com/api/'
 
 export const toCamel = (s) => {
   return s.replace(/([-_][a-z])/ig, ($1) => {

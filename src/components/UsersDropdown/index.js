@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { Inline } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Dropdown, Field, Menu, Item, Hint, Select, Label } from '@zendeskgarden/react-dropdowns';
 import { fetchAllUsers } from '../../utils/apis/admin'
@@ -19,7 +21,7 @@ const UsersDropdown = ({ selectedUser, setSeletedUser }) => {
 
   return(
     <>
-    {!allUsers && <div>I am loading </div> }
+    {!allUsers && <Inline size={32} color={PALETTE.blue[600]} />}
     { allUsers &&
       <SpacedRow justifyContent="start">
         <Col sm={5}>
