@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Field, Label, Hint, Input, Message } from '@zendeskgarden/react-forms';
 import { useForm, Controller  } from "react-hook-form";
 import { Button } from '@zendeskgarden/react-buttons';
@@ -6,6 +6,7 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import styled from 'styled-components';
 import IntervalDatePicker from '../IntervalDatePicker'
 import IncomesourceDropdown from '../IncomesourceDropdown'
+import IntervalContext from '../../context/interval'
 
 const SpacedRow = styled(Row)`
   margin: 50px 0px;
@@ -56,6 +57,8 @@ const SubmitButton = () => (
 const StaticAddIncomeForm = ({ userId='MAL0001' }) => {
   const { control, register, handleSubmit, formState: { errors } } = useForm();
   const [ isLoading, setLoading ] = useState(true)
+  const interval = useContext(IntervalContext)
+
   const onSubmit = data => {
     console.log(data)
   }
@@ -66,7 +69,7 @@ const StaticAddIncomeForm = ({ userId='MAL0001' }) => {
         <IncomesourceInput errors={errors} userId={userId} control={control} setLoading={setLoading}/>
         { !isLoading &&
           <>
-            <DateInput errors={errors} control={control} />
+            <DateInput errors={errors} control={control} startDate={interval.startDate} endDate={interval.endDate}/>
             <AmountInput errors={errors} register={register} />
             <SubmitButton/>
           </>
