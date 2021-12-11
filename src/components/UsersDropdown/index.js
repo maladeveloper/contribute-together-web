@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Dropdown, Field, Menu, Item, Hint, Select, Label } from '@zendeskgarden/react-dropdowns';
-import { fetchAllUsers } from '../../utils/apis/admin'
+import UserContext from '../../context/users'
 import styled from 'styled-components';
 
 const SpacedRow = styled(Row)`
   margin: 50px 0px;
 `
 const UsersDropdown = ({ selectedUser, setSeletedUser }) => {
-  const [ allUsers, setAllUsers ] = useState(null)
-
-  useEffect(() => {
-    fetchAllUsers().then(users =>{
-      setAllUsers(users)
-    })
-  }, [])
+  const allUsers =  useContext(UserContext)
+  console.log('inside the dropdown button i am the users-', allUsers)
 
 
   return(
     <>
-    {!allUsers && <Inline size={32} color={PALETTE.blue[600]} />}
     { allUsers &&
       <SpacedRow justifyContent="start">
         <Col sm={5}>

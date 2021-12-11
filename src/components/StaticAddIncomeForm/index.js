@@ -6,7 +6,6 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import styled from 'styled-components';
 import IntervalDatePicker from '../IntervalDatePicker'
 import IncomesourceDropdown from '../IncomesourceDropdown'
-import IntervalContext from '../../context/interval'
 
 const SpacedRow = styled(Row)`
   margin: 50px 0px;
@@ -22,13 +21,13 @@ const IncomesourceInput = ({control, errors, userId, setLoading} ) => (
     )}
   />
 )
-const DateInput = ({control, errors, startDate, endDate} ) => (
+const DateInput = ({control, errors } ) => (
   < Controller
     control = {control}
     rules={{ required: true }}
     name= "date"
     render={({ field: { onChange } }) =>(
-    <IntervalDatePicker onChange={onChange} errors={errors} startDate={startDate} endDate={endDate} />
+    <IntervalDatePicker onChange={onChange} errors={errors} />
     )}
   />
 )
@@ -57,7 +56,6 @@ const SubmitButton = () => (
 const StaticAddIncomeForm = ({ userId='MAL0001' }) => {
   const { control, register, handleSubmit, formState: { errors } } = useForm();
   const [ isLoading, setLoading ] = useState(true)
-  const interval = useContext(IntervalContext)
 
   const onSubmit = data => {
     console.log(data)
@@ -69,7 +67,7 @@ const StaticAddIncomeForm = ({ userId='MAL0001' }) => {
         <IncomesourceInput errors={errors} userId={userId} control={control} setLoading={setLoading}/>
         { !isLoading &&
           <>
-            <DateInput errors={errors} control={control} startDate={interval.startDate} endDate={interval.endDate}/>
+            <DateInput errors={errors} control={control} />
             <AmountInput errors={errors} register={register} />
             <SubmitButton/>
           </>

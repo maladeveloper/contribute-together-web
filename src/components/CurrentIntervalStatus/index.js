@@ -3,6 +3,7 @@ import { fetchTaxByInterval } from '../../utils/apis/tax'
 import { fetchAveragedIncomeByInterval, fetchIncomeBySource } from '../../utils/apis/income'
 import IntervalContext from '../../context/interval'
 import IncomeTaxTable from '../IncomeTaxTable'
+import IncomeBySourceTable from '../IncomeBySourceTable'
 
 const CurrentIntervalStatus = () => {
   const interval = useContext(IntervalContext)
@@ -22,10 +23,8 @@ const CurrentIntervalStatus = () => {
 
   return(
     <div>
-      yep
-      { tax && averagedIncome && 
-          <IncomeTaxTable tax={tax} averagedIncome={averagedIncome} />
-      }
+      { false && tax && averagedIncome && <IncomeTaxTable tax={tax} averagedIncome={averagedIncome} /> }
+      { incomeBySource && <IncomeBySourceTable incomeBySource={incomeBySource} />}
     </div>
   )
 }

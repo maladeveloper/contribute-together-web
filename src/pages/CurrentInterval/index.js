@@ -16,13 +16,13 @@ const CurrentInterval = () => {
 
   return(
     <>
-    { interval &&
-        <IntervalContext.Provider value={interval}>
-          <CurrentIntervalStatus/>
-          {false && <AddIncomePage/>}
-        </IntervalContext.Provider>
-    }
-    {!interval && <div>Loading</div>}
+      { interval &&
+          <IntervalContext.Provider value={interval}>
+            {<CurrentIntervalStatus/>}
+            {false &&<AddIncomePage/>}
+          </IntervalContext.Provider>
+      }
+      {!interval && <div>Loading</div>}
     </>
   )
 }
