@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { fetchTaxByInterval } from '../../utils/apis/tax'
-import { fetchAveragedIncomeByInterval, fetchIncomeBySource } from '../../utils/apis/income'
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { fetchLatestInterval } from '../../utils/apis/interval'
 import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
-import IncomeTaxTable from '../../components/IncomeTaxTable'
-import IncomeBySourceTable from '../../components/IncomeBySourceTable'
+import IncomeTab from '../../components/IncomeTab'
+import TaxTab from '../../components/TaxTab'
 import IntervalContext from '../../context/interval'
-import AddIncomePage from '../../pages/AddIncomePage'
 import styled from 'styled-components';
 
 const SpacedRow = styled(Row)`
@@ -16,19 +13,18 @@ const SpacedRow = styled(Row)`
 
 const CurrentInterval = () => {
   const [interval, setInterval] = useState(null)
-  const [tax, setTax] = useState(null)
-  const [averagedIncome, setAveragedIncome] = useState(null)
-  const [incomeBySource, setIncomeBySource] = useState(null)
   const [selectedTab, setSelectedTab] = useState('tab-1')
+  const [newSubmit, setNewSubmit] = useState(false)
+
+  const callSetNewSubmit = () => { setNewSubmit(!newSubmit) }
+
 
   useEffect(() => {
     fetchLatestInterval().then(interval => { 
-      setInterval(interval) 
-      fetchTaxByInterval(interval.id).then(taxData => setTax(taxData))
-      fetchAveragedIncomeByInterval(interval.id).then(averagedIncomeData => setAveragedIncome(averagedIncomeData))
-      fetchIncomeBySource(interval.id).then(incomeBySourceData => setIncomeBySource(incomeBySourceData))
+      setInterval(interval)
     })
   },[])
+    
 
   return(
     <>
@@ -41,20 +37,10 @@ const CurrentInterval = () => {
                 <Tab item="tab-2" >Tax</Tab>
               </TabList>
               <TabPanel item="tab-1">
-                <SpacedRow justifyContent={'center'}>
-                  <Col sm={10}>
-                    { interval && incomeBySource &&<IncomeBySourceTable incomeBySource={incomeBySource} />}
-                    {!interval || !incomeBySource && <div>Loading</div>}
-                  </Col>
-                </SpacedRow>
+                { interval && <IncomeTab  intervalId={interval.id} callSetNewSubmit={callSetNewSubmit}/>}
               </TabPanel>
               <TabPanel item="tab-2">
-                <SpacedRow justifyContent={'center'}>
-                  <Col sm={10}>
-                    { interval && averagedIncome && tax  && <IncomeTaxTable averagedIncome={averagedIncome} tax={tax}/>}
-                    {!interval || !averagedIncome || !tax &&  <div>Loading</div>}
-                  </Col>
-                </SpacedRow>
+                { interval && <TaxTab intervalId={interval.id} newSubmitFlag={newSubmit}/>}
               </TabPanel>
             </Tabs>
           </IntervalContext.Provider>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import CurrentInterval from '../CurrentInterval'
 import UserContext from '../../context/users'
 import { fetchAllUsers } from '../../utils/apis/admin'
@@ -12,8 +12,6 @@ const HomePage = () => {
     })
   }, [])
   
-  console.log('I am the users-', users)
-
   return(
     <div>
       <UserContext.Provider value={users}>

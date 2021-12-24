@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 import {
   GroupRow,

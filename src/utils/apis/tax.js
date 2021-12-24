@@ -1,4 +1,4 @@
-import { BASE_URL, keysToCamel } from './constants'
+import { BASE_URL } from './constants'
 
 export const fetchTaxByInterval = async (intervalId) => {
   const url = BASE_URL + `tax/${intervalId}`

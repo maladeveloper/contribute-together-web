@@ -31,4 +31,15 @@ export const fetchIncomeBySource = async (intervalId) => {
   return await response.json()
 }
 
+export const postNewIncome = async (incomeLoad) => {
+  const url = BASE_URL + `income/`
+
+  const response = await fetch(url, {
+    method:'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(incomeLoad)
+  })
+  return await response
+}
+
 

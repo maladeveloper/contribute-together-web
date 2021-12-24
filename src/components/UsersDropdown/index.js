@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { Inline } from '@zendeskgarden/react-loaders';
+import React, { useContext } from 'react';
 import { Row, Col } from '@zendeskgarden/react-grid';
 import { Dropdown, Field, Menu, Item, Hint, Select, Label } from '@zendeskgarden/react-dropdowns';
 import UserContext from '../../context/users'
@@ -11,8 +9,6 @@ const SpacedRow = styled(Row)`
 `
 const UsersDropdown = ({ selectedUser, setSeletedUser }) => {
   const allUsers =  useContext(UserContext)
-  console.log('inside the dropdown button i am the users-', allUsers)
-
 
   return(
     <>
