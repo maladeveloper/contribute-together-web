@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { Inline } from '@zendeskgarden/react-loaders';
 import { fetchTaxByInterval } from '../../utils/apis/tax'
 import { fetchAveragedIncomeByInterval } from '../../utils/apis/income'
 import IncomeTaxTable from '../IncomeTaxTable'
@@ -20,7 +22,7 @@ const TaxTab = ({ intervalId, newSubmitFlag }) => {
             ?
             <IncomeTaxTable averagedIncome={averagedIncome} tax={tax}/>
             : 
-            <div>Loading</div>
+            <Inline size={32} color={PALETTE.blue[600]} />
           }
       </DefaultBlock>
   )

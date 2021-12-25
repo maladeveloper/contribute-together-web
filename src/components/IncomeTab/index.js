@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { Inline } from '@zendeskgarden/react-loaders';
 import { fetchIncomeBySource } from '../../utils/apis/income'
 import IncomeBySourceTable from '../IncomeBySourceTable'
 import AddIncomePage from '../../pages/AddIncomePage'
@@ -39,7 +41,7 @@ const IncomeTab = ( {intervalId, callSetNewSubmit}) => {
                 <IncomeBySourceTable incomeBySource={incomeBySource} />
               </>
               : 
-              <div>Loading</div>
+              <Inline size={32} color={PALETTE.blue[600]} />
             }
         </DefaultBlock>
       }
