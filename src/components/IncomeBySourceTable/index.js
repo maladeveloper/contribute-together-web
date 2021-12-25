@@ -53,7 +53,7 @@ const incomeToRows = (obj) => {
           return(
             <Row key={incName}>
               <Cell>{incName}</Cell>
-              <Cell>{obj[incName]}</Cell>
+              <Cell>{obj[incName]['amount']}</Cell>
               <Cell hasOverflow>
                 <OverflowMenu />
               </Cell>
