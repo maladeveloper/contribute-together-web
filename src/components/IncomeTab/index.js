@@ -8,13 +8,13 @@ import { Button } from '@zendeskgarden/react-buttons';
 import DefaultBlock from '../DefaultBlock'
 
 
-const IncomeTab = ( {intervalId, callSetNewSubmit}) => {
+const IncomeTab = ( {intervalId, refreshIncomes}) => {
   const [incomeBySource, setIncomeBySource] = useState(null)
   const [addIncome, setAddIncome] = useState(false)
 
-  const submittedCall = () => {
+  const exitAddForm = () => {
     setAddIncome(false) 
-    callSetNewSubmit()
+    refreshIncomes()
   }
 
 
@@ -27,7 +27,7 @@ const IncomeTab = ( {intervalId, callSetNewSubmit}) => {
     <>
       { addIncome 
         ?
-        <AddIncomePage submittedCall={submittedCall}/>
+        <AddIncomePage exitAddForm={exitAddForm}/>
         :
         <DefaultBlock>
             { incomeBySource 

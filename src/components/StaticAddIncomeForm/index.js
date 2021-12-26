@@ -47,12 +47,12 @@ const SubmitButton = () => (
   </DefaultBlock>
 )
 
-const StaticAddIncomeForm = ({ userId='MAL0001', submittedCall=()=>{} }) => {
+const StaticAddIncomeForm = ({ userId='MAL0001', exitAddForm=()=>{} }) => {
   const { control, register, handleSubmit, formState: { errors } } = useForm();
   const [ isLoading, setLoading ] = useState(true)
 
   const onSubmit = data => {
-    postNewIncome(data).then(response => { submittedCall() })
+    postNewIncome(data).then(response => { exitAddForm() })
   }
 
   return (

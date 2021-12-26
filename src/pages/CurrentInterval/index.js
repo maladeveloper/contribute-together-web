@@ -10,9 +10,9 @@ import DefaultBlock from '../../components/DefaultBlock'
 const CurrentInterval = () => {
   const [interval, setInterval] = useState(null)
   const [selectedTab, setSelectedTab] = useState('tab-1')
-  const [newSubmit, setNewSubmit] = useState(false)
+  const [refreshFlag, setRefreshFlag] = useState(false)
 
-  const callSetNewSubmit = () => { setNewSubmit(!newSubmit) }
+  const refreshIncomes = () => { setRefreshFlag(!refreshFlag) }
 
 
   useEffect(() => {
@@ -31,10 +31,10 @@ const CurrentInterval = () => {
             <Tab item="tab-2" >Tax</Tab>
           </TabList>
           <TabPanel item="tab-1">
-            { interval && <IncomeTab  intervalId={interval.id} callSetNewSubmit={callSetNewSubmit}/>}
+            { interval && <IncomeTab  intervalId={interval.id} refreshIncomes={refreshIncomes}/>}
           </TabPanel>
           <TabPanel item="tab-2">
-            { interval && <TaxTab intervalId={interval.id} newSubmitFlag={newSubmit}/>}
+            { interval && <TaxTab intervalId={interval.id} refreshFlag={refreshFlag}/>}
           </TabPanel>
         </Tabs>
       </IntervalContext.Provider>

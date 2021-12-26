@@ -7,14 +7,14 @@ import IncomeTaxTable from '../IncomeTaxTable'
 import DefaultBlock from '../DefaultBlock'
 
 
-const TaxTab = ({ intervalId, newSubmitFlag }) => {
+const TaxTab = ({ intervalId, refreshFlag }) => {
   const [tax, setTax] = useState(null)
   const [averagedIncome, setAveragedIncome] = useState(null)
 
   useEffect(() => {
       fetchTaxByInterval(intervalId).then(taxData => setTax(taxData))
       fetchAveragedIncomeByInterval(intervalId).then(averagedIncomeData => setAveragedIncome(averagedIncomeData))
-  }, [newSubmitFlag, intervalId])
+  }, [refreshFlag, intervalId])
 
   return (
       <DefaultBlock justifyContent={"center"} sm={10}>
