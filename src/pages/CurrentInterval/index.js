@@ -31,7 +31,7 @@ const CurrentInterval = () => {
             <Tab item="tab-2" >Tax</Tab>
           </TabList>
           <TabPanel item="tab-1">
-            { interval && <IncomeTab  intervalId={interval.id} refreshIncomes={refreshIncomes}/>}
+            { interval && <IncomeTab  intervalId={interval.id} refreshIncomes={refreshIncomes} refreshFlag={refreshFlag}/>}
           </TabPanel>
           <TabPanel item="tab-2">
             { interval && <TaxTab intervalId={interval.id} refreshFlag={refreshFlag}/>}

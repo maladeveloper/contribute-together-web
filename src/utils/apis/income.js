@@ -33,4 +33,14 @@ export const postNewIncome = async (incomeLoad) => {
   return await response
 }
 
+export const deleteSpecificIncome = async (incomeId) => {
+  const url = BASE_URL + `income/` + incomeId
+  const response = await fetch(url, {
+    method:'DELETE',
+    headers: {'Content-Type': 'application/json'},
+  })
+  return await response
+}
+  
+
 

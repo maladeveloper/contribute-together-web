@@ -8,7 +8,7 @@ import { Button } from '@zendeskgarden/react-buttons';
 import DefaultBlock from '../DefaultBlock'
 
 
-const IncomeTab = ( {intervalId, refreshIncomes}) => {
+const IncomeTab = ( {intervalId, refreshIncomes, refreshFlag}) => {
   const [incomeBySource, setIncomeBySource] = useState(null)
   const [addIncome, setAddIncome] = useState(false)
 
@@ -21,7 +21,7 @@ const IncomeTab = ( {intervalId, refreshIncomes}) => {
   useEffect(() => {
     setIncomeBySource(null)
     fetchIncomeBySource(intervalId).then(incomeBySourceData => setIncomeBySource(incomeBySourceData))
-  },[addIncome, intervalId])
+  },[addIncome, intervalId, refreshFlag])
 
   return (
     <>
@@ -38,7 +38,7 @@ const IncomeTab = ( {intervalId, refreshIncomes}) => {
                     {"Add Income"}
                   </Button>
                 </DefaultBlock>
-                <IncomeBySourceTable incomeBySource={incomeBySource} />
+                <IncomeBySourceTable incomeBySource={incomeBySource} refreshIncomes={refreshIncomes}/>
               </>
               : 
               <Inline size={32} color={PALETTE.blue[600]} />

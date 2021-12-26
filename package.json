@@ -16,6 +16,7 @@
     "@zendeskgarden/react-tabs": "^8.47.1",
     "@zendeskgarden/react-theming": "^8.47.0",
     "@zendeskgarden/react-tooltips": "^8.47.1",
+    "@zendeskgarden/svg-icons": "^6.30.2",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
