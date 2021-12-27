@@ -7,13 +7,17 @@ const AddIncomePage = ({ exitAddForm=()=>{} }) => {
   const [ selectedUser, setSeletedUser ] = useState(null)
 
   return(
-    <>
-      <div>
+    <div style={{width:'90%', height:'55rem'}}>
+      <div style={{marginBottom:'3%', marginTop:'3%'}}>
          <Button onClick={() => exitAddForm()}>Exit</Button>
       </div>
-      <UsersDropdown selectedUser={selectedUser} setSeletedUser={setSeletedUser}/>
+      <div style={{marginBottom:'3%'}}>
+        <UsersDropdown selectedUser={selectedUser} setSeletedUser={setSeletedUser}/>
+      </div>
+      <div style={{marginBottom:'3%'}}>
       { selectedUser && <StaticAddIncomeForm userId={selectedUser.id} exitAddForm={exitAddForm}/>}
-    </>
+      </div>
+    </div>
   )
 }
 

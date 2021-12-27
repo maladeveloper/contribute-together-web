@@ -14,7 +14,7 @@ import { OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
 
 
 const TaxInfo = () =>(
-  <div>
+  <div style={{marginTop:'2%', marginBottom:'2%'}}>
     <XXL>{"Tax Collection"}</XXL>
     <Paragraph>
       <MD tag="span"> { "The contribution that is required to be paid by each individual."} </MD>
@@ -23,8 +23,6 @@ const TaxInfo = () =>(
 )
 
 const TaxUnpaidNotification = ({ unpaidNames }) => (
-
-  <div>
   <Notification type="warning">
     <Title>{"Warning"}</Title>
     <MD tag="span"> {"The tax cannot be calculated since the following users have not paid."} </MD>
@@ -33,7 +31,6 @@ const TaxUnpaidNotification = ({ unpaidNames }) => (
     </UnorderedList>
     <MD tag="span"> {"Please enter income for these users in the "}<b>{ "Income"} </b>{" tab."} </MD>
   </Notification> 
-  </div>
 )
 
 const findUnpaidNames = ( unpaidUsers, allUsers) =>{
@@ -56,7 +53,7 @@ const TaxSection = ({ tax }) => {
   }, [tax, interval])
 
   return(
-    <div>
+    <div style={{marginBottom:'5%'}}>
       <TaxInfo/>
     { !unpaidUsers.length 
       ?

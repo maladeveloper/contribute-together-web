@@ -9,28 +9,32 @@ import { postNewIncome } from '../../utils/apis/income'
 
 
 const IncomesourceInput = ({control, errors, userId, setLoading} ) => (
-  < Controller
-    control = {control}
-    rules={{ required: true }}
-    name= "incomesource"
-    render={({ field: { onChange } }) =>(
-    <IncomesourceDropdown onChange={onChange} userId={userId} errors={errors} setLoading={setLoading}/>
-    )}
-  />
+  <div style={{marginBottom:'3%'}}>
+    < Controller
+      control = {control}
+      rules={{ required: true }}
+      name= "incomesource"
+      render={({ field: { onChange } }) =>(
+      <IncomesourceDropdown onChange={onChange} userId={userId} errors={errors} setLoading={setLoading}/>
+      )}
+    />
+  </div>
 )
 const DateInput = ({control, errors } ) => (
-  < Controller
-    control = {control}
-    rules={{ required: true }}
-    name= "date"
-    render={({ field: { onChange } }) =>(
-    <IntervalDatePicker onChange={onChange} errors={errors} />
-    )}
-  />
+  <div style={{marginBottom:'3%'}}>
+    < Controller
+      control = {control}
+      rules={{ required: true }}
+      name= "date"
+      render={({ field: { onChange } }) =>(
+      <IntervalDatePicker onChange={onChange} errors={errors} />
+      )}
+    />
+  </div>
 )
 
 const AmountInput = ({register, errors}) =>(
-  <div>
+  <div style={{marginBottom:'3%'}}>
       <Field>
         <Label>Amount</Label>
         <Hint>The money amount earned</Hint>

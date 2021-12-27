@@ -28,11 +28,11 @@ const IncomeTab = ( {intervalId, refreshIncomes, refreshFlag}) => {
         ?
         <AddIncomePage exitAddForm={exitAddForm}/>
         :
-        <div>
+        <div style={{width:'90%'}}>
             { incomeBySource 
               ?
               <>
-                <div>
+                <div style={{marginTop:'5%', marginBottom:'5%'}}>
                   <Button isPrimary isStretched onClick={() => setAddIncome(true)}>
                     {"Add Income"}
                   </Button>

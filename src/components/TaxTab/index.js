@@ -5,6 +5,7 @@ import { fetchTaxByInterval } from '../../utils/apis/tax'
 import { fetchAveragedIncomeByInterval } from '../../utils/apis/income'
 import UserAmountTable from '../UserAmountTable'
 import TaxSection from '../TaxSection'
+import AveragedIncomeSection from '../AveragedIncomeSection'
 
 
 const TaxTab = ({ intervalId, refreshFlag }) => {
@@ -17,12 +18,12 @@ const TaxTab = ({ intervalId, refreshFlag }) => {
   }, [refreshFlag, intervalId])
 
   return (
-      <div>
+      <div style={{width:'90%'}}>
           { (tax && averagedIncome) 
             ?
             <>
               <TaxSection tax={tax} intervalId={intervalId}/>
-              <UserAmountTable data={averagedIncome} />
+              <AveragedIncomeSection averagedIncome={averagedIncome} />
             </>
             : 
             <Inline size={32} color={PALETTE.blue[600]} />

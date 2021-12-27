@@ -5,11 +5,9 @@ import HomePage from './pages/HomePage'
 
 function App() {
   return (
-    <div className="App">
       <ThemeProvider  theme={DEFAULT_THEME}>
         <HomePage/>
       </ThemeProvider>
-    </div>
   );
 }
 

@@ -22,7 +22,6 @@ const CurrentInterval = () => {
     
 
   return(
-    <div>
       <IntervalContext.Provider value={interval}>
         <Tabs selectedItem={selectedTab} onChange={setSelectedTab}>
           <TabList>
@@ -30,14 +29,17 @@ const CurrentInterval = () => {
             <Tab item="tab-2" >Income</Tab>
           </TabList>
           <TabPanel item="tab-1">
-            { interval && <TaxTab intervalId={interval.id} refreshFlag={refreshFlag}/>}
+            <div style={{display:'flex', justifyContent:'center'}}>
+              { interval && <TaxTab intervalId={interval.id} refreshFlag={refreshFlag}/>}
+            </div>
           </TabPanel>
           <TabPanel item="tab-2">
-            { interval && <IncomeTab  intervalId={interval.id} refreshIncomes={refreshIncomes} refreshFlag={refreshFlag}/>}
+            <div style={{display:'flex', justifyContent:'center'}}>
+              { interval && <IncomeTab  intervalId={interval.id} refreshIncomes={refreshIncomes} refreshFlag={refreshFlag}/>}
+            </div>
           </TabPanel>
         </Tabs>
       </IntervalContext.Provider>
-    </div>
   )
 }
 
