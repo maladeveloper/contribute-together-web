@@ -3,13 +3,12 @@ import { Row, Col } from '@zendeskgarden/react-grid';
 import styled from 'styled-components';
 
 
-const DefaultBlock = ({ sm=10, justifyContent='center', topBotMargin=50, children}) =>{
+const DefaultBlock = ({justifyContent='center', topBotMargin=1, children}) =>{
   const SpacedRow = styled(Row)`
-    margin: ${topBotMargin}px;
   `
   return(
     <SpacedRow justifyContent={justifyContent} >
-      <Col sm={sm}>
+      <Col >
         {children} 
       </Col>
     </SpacedRow>
