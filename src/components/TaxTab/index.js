@@ -22,7 +22,7 @@ const TaxTab = ({ intervalId, refreshFlag }) => {
           { (tax && averagedIncome) 
             ?
             <>
-              <TaxSection tax={tax}/>
+              <TaxSection tax={tax} intervalId={intervalId}/>
               <UserAmountTable data={averagedIncome} />
             </>
             : 
