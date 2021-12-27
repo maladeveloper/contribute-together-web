@@ -23,7 +23,7 @@ const arrToRows = (obj, allUsers) => {
     ))
 )}
 
-const IncomeTaxTable = ({ tax, averagedIncome}) =>{
+const UserAmountTable = ({ data }) =>{
   const allUsers = useContext(UserContext)
 
   return(
@@ -35,21 +35,10 @@ const IncomeTaxTable = ({ tax, averagedIncome}) =>{
         </HeaderRow>
       </Head>
       <Body>
-        <GroupRow>
-          <Cell colSpan={2}>
-            <b>Averaged Income</b>
-          </Cell>
-        </GroupRow>
-          {arrToRows(averagedIncome, allUsers)}
-        <GroupRow>
-          <Cell colSpan={2}>
-            <b>Tax</b>
-          </Cell>
-        </GroupRow>
-          {arrToRows(tax, allUsers)}
+          {arrToRows(data, allUsers)}
       </Body>
     </Table>
   )
 }
 
-export default IncomeTaxTable
+export default UserAmountTable

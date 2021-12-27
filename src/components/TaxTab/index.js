@@ -3,8 +3,9 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
 import { fetchTaxByInterval } from '../../utils/apis/tax'
 import { fetchAveragedIncomeByInterval } from '../../utils/apis/income'
-import IncomeTaxTable from '../IncomeTaxTable'
+import UserAmountTable from '../UserAmountTable'
 import DefaultBlock from '../DefaultBlock'
+import TaxSection from '../TaxSection'
 
 
 const TaxTab = ({ intervalId, refreshFlag }) => {
@@ -20,7 +21,10 @@ const TaxTab = ({ intervalId, refreshFlag }) => {
       <DefaultBlock justifyContent={"center"} sm={10}>
           { (tax && averagedIncome) 
             ?
-            <IncomeTaxTable averagedIncome={averagedIncome} tax={tax}/>
+            <>
+              <TaxSection tax={tax}/>
+              <UserAmountTable data={averagedIncome} />
+            </>
             : 
             <Inline size={32} color={PALETTE.blue[600]} />
           }
