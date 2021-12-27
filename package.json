@@ -12,6 +12,7 @@
     "@zendeskgarden/react-forms": "^8.47.0",
     "@zendeskgarden/react-grid": "^8.47.0",
     "@zendeskgarden/react-loaders": "^8.47.1",
+    "@zendeskgarden/react-notifications": "^8.47.1",
     "@zendeskgarden/react-tables": "^8.47.1",
     "@zendeskgarden/react-tabs": "^8.47.1",
     "@zendeskgarden/react-theming": "^8.47.0",
