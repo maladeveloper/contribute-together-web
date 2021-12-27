@@ -4,7 +4,6 @@ import { Inline } from '@zendeskgarden/react-loaders';
 import { fetchTaxByInterval } from '../../utils/apis/tax'
 import { fetchAveragedIncomeByInterval } from '../../utils/apis/income'
 import UserAmountTable from '../UserAmountTable'
-import DefaultBlock from '../DefaultBlock'
 import TaxSection from '../TaxSection'
 
 
@@ -18,7 +17,7 @@ const TaxTab = ({ intervalId, refreshFlag }) => {
   }, [refreshFlag, intervalId])
 
   return (
-      <DefaultBlock justifyContent={"center"} sm={10}>
+      <div>
           { (tax && averagedIncome) 
             ?
             <>
@@ -28,7 +27,7 @@ const TaxTab = ({ intervalId, refreshFlag }) => {
             : 
             <Inline size={32} color={PALETTE.blue[600]} />
           }
-      </DefaultBlock>
+      </div>
   )
 }
 

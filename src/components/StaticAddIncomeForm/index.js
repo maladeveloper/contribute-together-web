@@ -5,7 +5,6 @@ import { Button } from '@zendeskgarden/react-buttons';
 import IntervalDatePicker from '../IntervalDatePicker'
 import IncomesourceDropdown from '../IncomesourceDropdown'
 import { postNewIncome } from '../../utils/apis/income'
-import DefaultBlock from '../DefaultBlock'
 
 
 
@@ -31,20 +30,20 @@ const DateInput = ({control, errors } ) => (
 )
 
 const AmountInput = ({register, errors}) =>(
-  <DefaultBlock justifyContent={"start"} sm={1.5}>
+  <div>
       <Field>
         <Label>Amount</Label>
         <Hint>The money amount earned</Hint>
         <Input {...register("amount",{ required: true, pattern:/^[0-9]*$/, max:10000, min:0 }) } validation={errors.amount && 'error'} />
       </Field>
       {errors.amount && <Message validation="error">Must provide a number between 0 and 10,000</Message>}
-  </DefaultBlock>
+  </div>
 )
 
 const SubmitButton = () => (
-  <DefaultBlock justifyContent={"start"} sm={5}>
+  <div>
      <Button type='submit'>Submit</Button>
-  </DefaultBlock>
+  </div>
 )
 
 const StaticAddIncomeForm = ({ userId='MAL0001', exitAddForm=()=>{} }) => {

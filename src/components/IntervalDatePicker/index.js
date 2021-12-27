@@ -3,7 +3,6 @@ import moment from 'moment';
 import { Datepicker } from '@zendeskgarden/react-datepickers';
 import { Field, Label, Hint, Input, Message } from '@zendeskgarden/react-forms';
 import IntervalContext from '../../context/interval'
-import DefaultBlock from '../DefaultBlock'
 
 const IntervalDatePicker = ({ onChange, errors }) => {
   const { startDate, endDate } = useContext(IntervalContext)
@@ -15,7 +14,7 @@ const IntervalDatePicker = ({ onChange, errors }) => {
   }
 
   return(
-    <DefaultBlock justifyContent={"start"} sm={5}>
+    <div>
       <Field>
         <Label>Date</Label>
         <Hint>The date the income was recieved</Hint>
@@ -29,7 +28,7 @@ const IntervalDatePicker = ({ onChange, errors }) => {
         </Datepicker>
       </Field>
       {errors?.date && <Message validation="error">Must provide a date</Message>}
-    </DefaultBlock>
+    </div>
   )
 }
 

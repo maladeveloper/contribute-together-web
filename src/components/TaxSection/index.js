@@ -10,22 +10,21 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
 import { Notification, Title, Close } from '@zendeskgarden/react-notifications';
 import { OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
-import DefaultBlock from '../DefaultBlock'
 
 
 
 const TaxInfo = () =>(
-  <DefaultBlock sm={14} topBotMargin={20}>
+  <div>
     <XXL>{"Tax Collection"}</XXL>
     <Paragraph>
       <MD tag="span"> { "The contribution that is required to be paid by each individual."} </MD>
     </Paragraph>
-  </DefaultBlock>
+  </div>
 )
 
 const TaxUnpaidNotification = ({ unpaidNames }) => (
 
-  <DefaultBlock sm={14} topBotMargin={10}>
+  <div>
   <Notification type="warning">
     <Title>{"Warning"}</Title>
     <MD tag="span"> {"The tax cannot be calculated since the following users have not paid."} </MD>
@@ -34,7 +33,7 @@ const TaxUnpaidNotification = ({ unpaidNames }) => (
     </UnorderedList>
     <MD tag="span"> {"Please enter income for these users in the "}<b>{ "Income"} </b>{" tab."} </MD>
   </Notification> 
-  </DefaultBlock>
+  </div>
 )
 
 const findUnpaidNames = ( unpaidUsers, allUsers) =>{
@@ -57,7 +56,7 @@ const TaxSection = ({ tax }) => {
   }, [tax, interval])
 
   return(
-    <DefaultBlock sm={12} topBotMargin={10}>
+    <div>
       <TaxInfo/>
     { !unpaidUsers.length 
       ?
@@ -66,7 +65,7 @@ const TaxSection = ({ tax }) => {
       <TaxUnpaidNotification  unpaidNames={findUnpaidNames(unpaidUsers, allUsers)}/>
     }
     { isLoading && <Inline size={32} color={PALETTE.blue[600]} />}
-    </DefaultBlock>
+    </div>
   )
 }
 

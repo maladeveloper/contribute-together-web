@@ -3,7 +3,6 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
 import { Dropdown, Field, Menu, Item, Hint, Select, Label, Message } from '@zendeskgarden/react-dropdowns';
 import { fetchIncomeSources } from '../../utils/apis/income'
-import DefaultBlock from '../DefaultBlock'
 
 
 const IncomesourceDropdown = ({ userId, setLoading, onChange, errors }) => {
@@ -27,7 +26,7 @@ const IncomesourceDropdown = ({ userId, setLoading, onChange, errors }) => {
   }
 
   return(
-    <DefaultBlock justifyContent={"start"} sm={5}>
+    <div>
         { incomeSources &&
           <>
            <Dropdown
@@ -54,7 +53,7 @@ const IncomesourceDropdown = ({ userId, setLoading, onChange, errors }) => {
           </>
         }
         { !incomeSources && <Inline size={32} color={PALETTE.blue[600]} />}
-    </DefaultBlock>
+    </div>
   )
 }
 

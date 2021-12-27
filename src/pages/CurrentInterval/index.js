@@ -4,7 +4,6 @@ import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
 import IncomeTab from '../../components/IncomeTab'
 import TaxTab from '../../components/TaxTab'
 import IntervalContext from '../../context/interval'
-import DefaultBlock from '../../components/DefaultBlock'
 
 
 const CurrentInterval = () => {
@@ -23,7 +22,7 @@ const CurrentInterval = () => {
     
 
   return(
-    <DefaultBlock>
+    <div>
       <IntervalContext.Provider value={interval}>
         <Tabs selectedItem={selectedTab} onChange={setSelectedTab}>
           <TabList>
@@ -38,7 +37,7 @@ const CurrentInterval = () => {
           </TabPanel>
         </Tabs>
       </IntervalContext.Provider>
-    </DefaultBlock>
+    </div>
   )
 }
 

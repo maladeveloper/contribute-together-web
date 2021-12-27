@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Dropdown, Field, Menu, Item, Hint, Select, Label } from '@zendeskgarden/react-dropdowns';
 import UserContext from '../../context/users'
-import DefaultBlock from '../DefaultBlock'
 
 const UsersDropdown = ({ selectedUser, setSeletedUser }) => {
   const allUsers =  useContext(UserContext)
@@ -9,7 +8,7 @@ const UsersDropdown = ({ selectedUser, setSeletedUser }) => {
   return(
     <>
     { allUsers &&
-      <DefaultBlock justifyContent={"start"} sm={5}>
+      <div>
           <Dropdown
              selectedItem={selectedUser}
              onSelect={setSeletedUser}
@@ -30,7 +29,7 @@ const UsersDropdown = ({ selectedUser, setSeletedUser }) => {
                   }
                 </Menu>
           </Dropdown>
-      </DefaultBlock>
+      </div>
     }
     </>
   )

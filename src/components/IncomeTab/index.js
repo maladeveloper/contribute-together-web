@@ -5,7 +5,6 @@ import { fetchIncomeBySource } from '../../utils/apis/income'
 import IncomeBySourceTable from '../IncomeBySourceTable'
 import AddIncomePage from '../../pages/AddIncomePage'
 import { Button } from '@zendeskgarden/react-buttons';
-import DefaultBlock from '../DefaultBlock'
 
 
 const IncomeTab = ( {intervalId, refreshIncomes, refreshFlag}) => {
@@ -29,21 +28,21 @@ const IncomeTab = ( {intervalId, refreshIncomes, refreshFlag}) => {
         ?
         <AddIncomePage exitAddForm={exitAddForm}/>
         :
-        <DefaultBlock>
+        <div>
             { incomeBySource 
               ?
               <>
-                <DefaultBlock>
+                <div>
                   <Button isPrimary isStretched onClick={() => setAddIncome(true)}>
                     {"Add Income"}
                   </Button>
-                </DefaultBlock>
+                </div>
                 <IncomeBySourceTable incomeBySource={incomeBySource} refreshIncomes={refreshIncomes}/>
               </>
               : 
               <Inline size={32} color={PALETTE.blue[600]} />
             }
-        </DefaultBlock>
+        </div>
       }
     </>
   )
