@@ -16,11 +16,11 @@ const HomePage = () => {
   
   return(
     <div style={{display:'flex', justifyContent:'center'}}>
-    <div style={{width:'90%'}}>
-      <UserContext.Provider value={users}>
-        <CurrentInterval />
-      </UserContext.Provider>
-    </div>
+      <div style={{width:'90%', marginTop:'3%'}}>
+        <UserContext.Provider value={users}>
+          <CurrentInterval />
+        </UserContext.Provider>
+      </div>
     </div>
   )
 }
