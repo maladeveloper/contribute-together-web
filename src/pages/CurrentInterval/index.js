@@ -9,10 +9,10 @@ import { Paragraph, Span, } from '@zendeskgarden/react-typography';
 import moment from 'moment';
 
 const CurrentIntevalInfo = ({ interval }) =>(
-  <div style={{marginBottom:'1%'}}>
+  <div style={{marginBottom:'2%'}}>
     <XXXL>{"Current Interval"}</XXXL>
     <Paragraph>
-      <div style={{ marginBottom:'0.5%', marginTop:'1%' }}>
+      <div style={{ marginBottom:'2%', marginTop:'2%' }}>
       <MD tag="span"> { "The income and tax contribution required for the current interval"} </MD>
       <MD tag="span"> { "which spans the following dates."} </MD>
       </div>
@@ -22,10 +22,10 @@ const CurrentIntevalInfo = ({ interval }) =>(
         <div>
           <MD> { "End date: "}<b>{moment(interval.endDate, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")}</b></MD>
         </div>
-      <div style={{ marginBottom:'0.5%', marginTop:'0.5%' }}>
+      <div style={{ marginBottom:'2%', marginTop:'2%' }}>
         <MD tag="span"> { "The goal for the current interval is as follows."} </MD>
       </div>
-      <div >
+      <div  style={{ marginBottom:'3%'}}>
         <MD> { "Goal Amount: "}<b>{`$${interval.amount}`}</b></MD>
       </div>
     </Paragraph>
@@ -61,7 +61,7 @@ const CurrentInterval = () => {
             </div>
           </TabPanel>
           <TabPanel item="tab-2">
-            <div style={{display:'flex', justifyContent:'center'}}>
+            <div style={{display:'flex', justifyContent:'center', height:'50rem'}}>
               { interval && <IncomeTab  intervalId={interval.id} refreshIncomes={refreshIncomes} refreshFlag={refreshFlag}/>}
             </div>
           </TabPanel>
