@@ -81,8 +81,8 @@ const IncomeBySourceTable = ({ incomeBySource, refreshIncomes }) => {
   return(
     <>
     { !isLoading &&
-    <div style={{ overflowX: 'auto' }}>
-      <Table style={{ minWidth: 500 }}>
+    <div >
+      <Table >
         <Head>
           <HeaderRow>
             <HeaderCell>Name</HeaderCell>
