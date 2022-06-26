@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@zendeskgarden/react-buttons": "^8.47.0",
+    "@zendeskgarden/react-chrome": "^8.53.0",
     "@zendeskgarden/react-datepickers": "^8.47.0",
     "@zendeskgarden/react-dropdowns": "^8.47.1",
     "@zendeskgarden/react-forms": "^8.47.0",
