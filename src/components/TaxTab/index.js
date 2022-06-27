@@ -3,7 +3,6 @@ import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
 import { fetchTaxByInterval } from '../../utils/apis/tax'
 import { fetchAveragedIncomeByInterval } from '../../utils/apis/income'
-import UserAmountTable from '../UserAmountTable'
 import TaxSection from '../TaxSection'
 import AveragedIncomeSection from '../AveragedIncomeSection'
 

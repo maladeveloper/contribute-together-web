@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import UserAmountTable from '../UserAmountTable'
+import UserAmountTable from '../UserAmountsTable'
 import UserContext from '../../context/users'
 import IntervalContext from '../../context/interval'
 import { Paragraph, Span, } from '@zendeskgarden/react-typography';

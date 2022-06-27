@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import UserAmountTable from '../UserAmountTable'
+import UserAmountTable from '../UserAmountsTable'
 import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 import { Paragraph, Span, } from '@zendeskgarden/react-typography';
 

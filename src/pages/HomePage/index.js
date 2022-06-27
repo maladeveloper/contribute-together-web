@@ -46,7 +46,7 @@ const chooseShowPage = (showpageId) => {
 
 const HomePage = () => {
   const [users, setUsers] = useState(null)
-  const [nav, setNav] = useState('nav-1');
+  const [nav, setNav] = useState('nav-2');
   const [isExpanded, setIsExpanded] = useState(false)
 
 
@@ -78,7 +78,7 @@ const HomePage = () => {
               <NavItemText>Previous Payments</NavItemText>
             </NavItem>
           </Nav>
-      <div style={{marginLeft:'20px', width:'90%', marginTop:'3%'}}>
+      <div style={{marginLeft:'20px', width:'95%', marginTop:'3%'}}>
         <UserContext.Provider value={users}>
           {chooseShowPage(nav)}
         </UserContext.Provider>
