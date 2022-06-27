@@ -4,8 +4,8 @@ import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
 import IncomeTab from '../../components/IncomeTab'
 import TaxTab from '../../components/TaxTab'
 import IntervalContext from '../../context/interval'
-import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
-import { Paragraph, Span, } from '@zendeskgarden/react-typography';
+import { MD, XXXL } from '@zendeskgarden/react-typography';
+import { Paragraph } from '@zendeskgarden/react-typography';
 import moment from 'moment';
 
 const CurrentIntevalInfo = ({ interval }) =>(

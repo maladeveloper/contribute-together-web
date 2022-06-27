@@ -18,7 +18,7 @@ const IncomesourceDropdown = ({ userId, setLoading, onChange, errors }) => {
       setIncomeSources(incomeSources)
       setLoading(false)
     })
-  }, [ userId ])
+  }, [ userId, setLoading, onChange])
 
   const triggerSelectActions = (source) => {
     onChange(source.id)

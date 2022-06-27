@@ -1,6 +1,6 @@
 import { zipIdToName } from '../../utils/helpers'
 import UserContext from '../../context/users'
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import KeyToValueTable from '../KeyToValueTable';
 
 const mapIdToNameInData = (userDict, data) => {

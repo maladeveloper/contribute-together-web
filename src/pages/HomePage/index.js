@@ -3,34 +3,17 @@ import CurrentInterval from '../CurrentInterval'
 import PreviousPayments from '../PreviousPayments'
 import UserContext from '../../context/users'
 import { fetchAllUsers } from '../../utils/apis/admin'
-import styled from 'styled-components';
-import { Button } from '@zendeskgarden/react-buttons';
-import { XXL, MD } from '@zendeskgarden/react-typography';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
-import { ReactComponent as HomeIcon } from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
+import { ReactComponent as FlagIcon } from '@zendeskgarden/svg-icons/src/16/flag-fill.svg';
 import { ReactComponent as ClockIcon } from '@zendeskgarden/svg-icons/src/26/clock.svg';
-import { ReactComponent as SettingsIcon } from '@zendeskgarden/svg-icons/src/26/settings-fill.svg';
-import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
-import { ReactComponent as MenuTrayIcon } from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
-import { ReactComponent as PersonIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
+import { ReactComponent as ChevronRight } from '@zendeskgarden/svg-icons/src/16/chevron-double-right-stroke.svg';
+import { ReactComponent as ChevronLeft } from '@zendeskgarden/svg-icons/src/16/chevron-double-left-stroke.svg';
 import {
-  Chrome,
-  Body,
-  Content,
-  Main,
-  Header,
-  HeaderItem,
-  HeaderItemIcon,
-  HeaderItemText,
-  Footer,
-  FooterItem,
   Nav,
   NavItem,
   NavItemIcon,
   NavItemText,
-  Sidebar,
-  SkipNav
 } from '@zendeskgarden/react-chrome';
 
 
@@ -40,6 +23,7 @@ const chooseShowPage = (showpageId) => {
       return <CurrentInterval/>
     case 'nav-2':
       return <PreviousPayments/>
+    default: return <CurrentInterval/>
 
   }
 }
@@ -67,7 +51,7 @@ const HomePage = () => {
             </NavItem>
             <NavItem isCurrent={nav === 'nav-1'} onClick={() => setNav('nav-1')}>
               <NavItemIcon>
-                <HomeIcon />
+                <FlagIcon />
               </NavItemIcon>
               <NavItemText>Current Interval</NavItemText>
             </NavItem>
@@ -76,6 +60,15 @@ const HomePage = () => {
                 <ClockIcon />
               </NavItemIcon>
               <NavItemText>Previous Payments</NavItemText>
+            </NavItem>
+            <NavItem onClick={() => setIsExpanded(!isExpanded)}>
+              <NavItemIcon>
+              { isExpanded
+                ?<ChevronLeft />
+                :<ChevronRight />
+              }
+                
+              </NavItemIcon>
             </NavItem>
           </Nav>
       <div style={{marginLeft:'20px', width:'95%', marginTop:'3%'}}>

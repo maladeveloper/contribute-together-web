@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Paragraph, Span, } from '@zendeskgarden/react-typography';
-import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
+import { Paragraph } from '@zendeskgarden/react-typography';
+import { MD, XXXL } from '@zendeskgarden/react-typography';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
 import { Accordion } from '@zendeskgarden/react-accordions';

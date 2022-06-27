@@ -1,7 +1,6 @@
 import {
   Body,
   Cell,
-  GroupRow,
   Head,
   HeaderCell,
   HeaderRow,

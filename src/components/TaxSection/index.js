@@ -2,14 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import UserAmountTable from '../UserAmountsTable'
 import UserContext from '../../context/users'
 import IntervalContext from '../../context/interval'
-import { Paragraph, Span, } from '@zendeskgarden/react-typography';
-import { SM, MD, LG, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
+import { Paragraph } from '@zendeskgarden/react-typography';
+import { MD,  XXL } from '@zendeskgarden/react-typography';
 import { zipIdToName } from '../../utils/helpers'
 import { fetchUnpaidUsers } from '../../utils/apis/admin'
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
-import { Notification, Title, Close } from '@zendeskgarden/react-notifications';
-import { OrderedList, UnorderedList } from '@zendeskgarden/react-typography';
+import { Notification, Title } from '@zendeskgarden/react-notifications';
+import { UnorderedList } from '@zendeskgarden/react-typography';
 
 
 
@@ -27,7 +27,7 @@ const TaxUnpaidNotification = ({ unpaidNames }) => (
     <Title>{"Warning"}</Title>
     <MD tag="span"> {"The tax cannot be calculated since the following users have not paid."} </MD>
     <UnorderedList>
-      {unpaidNames.map(name => <UnorderedList.Item>{name}</UnorderedList.Item>)}
+      {unpaidNames.map(name => <UnorderedList.Item key={name}>{name}</UnorderedList.Item>)}
     </UnorderedList>
     <MD tag="span"> {"Please enter income for these users in the "}<b>{ "Income"} </b>{" tab."} </MD>
   </Notification> 
