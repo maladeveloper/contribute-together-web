@@ -28,6 +28,10 @@
     "styled-components": "^5.3.3",
     "web-vitals": "^1.0.1"
   },
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.5.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
