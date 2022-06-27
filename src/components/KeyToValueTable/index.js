@@ -30,7 +30,7 @@ const KeyToValueTable = ({ data, colOneName, colTwoName, totalAmount=null }) =>{
       </Head>
       <Body>
           {arrToRows(data)}
-        {totalAmount &&
+        {totalAmount != null &&
         <Row key={-1}>
           <Cell><i>{"Total"}</i></Cell>
           <Cell><i>{totalAmount}</i></Cell>
