@@ -48,8 +48,8 @@ const AllIntervalData = ({ intervalData }) => {
   return(
     <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
         <div style={{width:'85%', marginTop: '1%'}} >
-          <XL>{"Tax Collection"}</XL>
-          <UserAmountTable data={intervalData.taxData}/>
+          <XL>{"Paid Tax"}</XL>
+          <UserAmountTable data={intervalData.paymentData}/>
         </div>
         <div style={{width:'85%', marginTop: '4%'}} >
           <XL>{"Averaged Income"}</XL>

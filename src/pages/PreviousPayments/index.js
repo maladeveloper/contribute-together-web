@@ -6,10 +6,9 @@ import { Inline } from '@zendeskgarden/react-loaders';
 import { Accordion } from '@zendeskgarden/react-accordions';
 import { fetchIncomeBySource, fetchAveragedIncomeByInterval } from '../../utils/apis/income'
 import { fetchIntervals } from '../../utils/apis/interval'
-import { fetchTaxByInterval } from '../../utils/apis/tax'
+import { fetchPaymentByInterval } from '../../utils/apis/payments'
 import AllIntervalData from '../../components/AllIntervalData'
 import moment from 'moment';
-
 
 
 const AccordianIntervals = ({ intervals }) => {
@@ -20,11 +19,10 @@ const AccordianIntervals = ({ intervals }) => {
       //Make a call to get interval data
       const intervalId = intervals[intervalIndex].id
       fetchIncomeBySource(intervalId).then(incomeBySourceData => {
-        fetchTaxByInterval(intervalId).then(taxData =>{
+        fetchPaymentByInterval(intervalId).then(paymentData =>{
           fetchAveragedIncomeByInterval(intervalId).then(averagedIncomeData =>{
-            const newIntervalDataObj = { incomeBySourceData, taxData, averagedIncomeData };
+            const newIntervalDataObj = { incomeBySourceData, paymentData, averagedIncomeData };
             const newIntervalData = { ...intervalData }
-            console.log( 'newIntervalData', newIntervalData)
             newIntervalData[intervalIndex] = newIntervalDataObj
             setIntervalData(newIntervalData)
           })
