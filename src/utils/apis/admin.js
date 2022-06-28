@@ -6,8 +6,8 @@ export const fetchAllUsers = async () => {
  return (await response.json()).map( user => keysToCamel(user))
 }
 
-export const fetchUnpaidUsers = async (intervalId) => {
-  const url = BASE_URL + 'users/unpaid/' + intervalId
+export const fetchUnsubmittedUsers = async (intervalId) => {
+  const url = BASE_URL + 'users/unsubmitted/' + intervalId
   const response = await fetch(url)
   return await response.json()
 }

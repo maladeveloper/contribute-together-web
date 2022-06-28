@@ -5,7 +5,7 @@ import IntervalContext from '../../context/interval'
 import { Paragraph } from '@zendeskgarden/react-typography';
 import { MD,  XXL } from '@zendeskgarden/react-typography';
 import { zipIdToName } from '../../utils/helpers'
-import { fetchUnpaidUsers } from '../../utils/apis/admin'
+import { fetchUnsubmittedUsers } from '../../utils/apis/admin'
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline } from '@zendeskgarden/react-loaders';
 import { Notification, Title } from '@zendeskgarden/react-notifications';
@@ -46,7 +46,7 @@ const TaxSection = ({ tax }) => {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchUnpaidUsers(interval.id).then( users => {
+    fetchUnsubmittedUsers(interval.id).then( users => {
       setUnpaidUsers(users)
       setIsLoading(false)
     })
