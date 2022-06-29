@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import CurrentInterval from '../CurrentInterval'
 import PreviousPayments from '../PreviousPayments'
+import ConfigurationsPage from '../ConfigurationsPage'
 import UserContext from '../../context/users'
 import { fetchAllUsers } from '../../utils/apis/admin'
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as FlagIcon } from '@zendeskgarden/svg-icons/src/16/flag-fill.svg';
 import { ReactComponent as ClockIcon } from '@zendeskgarden/svg-icons/src/26/clock.svg';
+import { ReactComponent as AdjustIcon } from '@zendeskgarden/svg-icons/src/16/adjust-stroke.svg';
 import { ReactComponent as ChevronRight } from '@zendeskgarden/svg-icons/src/16/chevron-double-right-stroke.svg';
 import { ReactComponent as ChevronLeft } from '@zendeskgarden/svg-icons/src/16/chevron-double-left-stroke.svg';
 import {
@@ -23,6 +25,8 @@ const chooseShowPage = (showpageId) => {
       return <CurrentInterval/>
     case 'nav-2':
       return <PreviousPayments/>
+    case 'nav-3':
+      return <ConfigurationsPage/>
     default: return <CurrentInterval/>
 
   }
@@ -60,6 +64,12 @@ const HomePage = () => {
                 <ClockIcon />
               </NavItemIcon>
               <NavItemText>Previous Payments</NavItemText>
+            </NavItem>
+            <NavItem isCurrent={nav === 'nav-3'} onClick={() => setNav('nav-3')}>
+              <NavItemIcon>
+                <AdjustIcon />
+              </NavItemIcon>
+              <NavItemText>Configurations</NavItemText>
             </NavItem>
             <NavItem onClick={() => setIsExpanded(!isExpanded)}>
               <NavItemIcon>
