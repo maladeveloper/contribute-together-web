@@ -27,14 +27,14 @@ const chooseShowPage = (showpageId) => {
       return <PreviousPayments/>
     case 'nav-3':
       return <ConfigurationsPage/>
-    default: return <CurrentInterval/>
+    default: return <ConfigurationsPage/>
 
   }
 }
 
 const HomePage = () => {
   const [users, setUsers] = useState(null)
-  const [nav, setNav] = useState('nav-2');
+  const [nav, setNav] = useState('nav-3');
   const [isExpanded, setIsExpanded] = useState(false)
 
 
