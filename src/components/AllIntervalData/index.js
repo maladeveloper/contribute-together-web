@@ -8,7 +8,6 @@ import { zipIdToName } from '../../utils/helpers'
 
 
 const showSourceIncome = (userSourceIncome) =>{
-    console.log( 'userSourceIncome', userSourceIncome)
     const sourceToAmount = {}
     let totalAmount = 0
 
@@ -17,8 +16,6 @@ const showSourceIncome = (userSourceIncome) =>{
         sourceToAmount[key] = userSourceIncome[key].amount
     })
     
-
-    console.log( 'sourceToAmount', sourceToAmount)
     return(
         <div><KeyToValueTable  data={sourceToAmount} colOneName={"Source"} colTwoName={"Amount($)"} totalAmount={totalAmount}/> </div>
     )

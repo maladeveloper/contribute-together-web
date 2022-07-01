@@ -3,12 +3,14 @@ import CurrentInterval from '../CurrentInterval'
 import PreviousPayments from '../PreviousPayments'
 import ConfigurationsPage from '../ConfigurationsPage'
 import UserContext from '../../context/users'
+import MetricsPage from '../MetricsPage'
 import { fetchAllUsers } from '../../utils/apis/admin'
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 import { ReactComponent as FlagIcon } from '@zendeskgarden/svg-icons/src/16/flag-fill.svg';
 import { ReactComponent as ClockIcon } from '@zendeskgarden/svg-icons/src/26/clock.svg';
 import { ReactComponent as AdjustIcon } from '@zendeskgarden/svg-icons/src/16/adjust-stroke.svg';
+import { ReactComponent as GraphIcon } from '@zendeskgarden/svg-icons/src/26/bar-chart.svg';
 import { ReactComponent as ChevronRight } from '@zendeskgarden/svg-icons/src/16/chevron-double-right-stroke.svg';
 import { ReactComponent as ChevronLeft } from '@zendeskgarden/svg-icons/src/16/chevron-double-left-stroke.svg';
 import {
@@ -27,6 +29,8 @@ const chooseShowPage = (showpageId) => {
       return <PreviousPayments/>
     case 'nav-3':
       return <ConfigurationsPage/>
+    case 'nav-4':
+      return <MetricsPage/>
     default: return <ConfigurationsPage/>
 
   }
@@ -34,7 +38,7 @@ const chooseShowPage = (showpageId) => {
 
 const HomePage = () => {
   const [users, setUsers] = useState(null)
-  const [nav, setNav] = useState('nav-3');
+  const [nav, setNav] = useState('nav-4');
   const [isExpanded, setIsExpanded] = useState(false)
 
 
@@ -70,6 +74,12 @@ const HomePage = () => {
                 <AdjustIcon />
               </NavItemIcon>
               <NavItemText>Configurations</NavItemText>
+            </NavItem>
+            <NavItem isCurrent={nav === 'nav-4'} onClick={() => setNav('nav-4')}>
+              <NavItemIcon>
+                <GraphIcon />
+              </NavItemIcon>
+              <NavItemText>Metrics</NavItemText>
             </NavItem>
             <NavItem onClick={() => setIsExpanded(!isExpanded)}>
               <NavItemIcon>
